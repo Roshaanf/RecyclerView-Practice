@@ -15,13 +15,15 @@ import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.ui.frag
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.R;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.adapter.ViewPagerAdapter;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.databinding.ActivityMainBinding;
+import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.ui.fragment.StaggeredVerticalFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LinearHorizontalFragment.OnFragmentInteractionListener,
         LinearVerticalFragment.OnFragmentInteractionListener,
-        GridHorizontalFragment.OnFragmentInteractionListener {
+        GridHorizontalFragment.OnFragmentInteractionListener,
+StaggeredVerticalFragment.OnFragmentInteractionListener{
 
     ActivityMainBinding binding;
 
@@ -36,12 +38,14 @@ public class MainActivity extends AppCompatActivity implements LinearHorizontalF
         fragments.add(new LinearHorizontalFragment());
         fragments.add(new GridHorizontalFragment());
         fragments.add(new GridVerticalFragment());
+        fragments.add(new StaggeredVerticalFragment());
 
         //adding tabs titles
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Linear Vertical Fargment"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Linear  Horizontal Fargment"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Grid Horizontal Fargment"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Grid Vertical Fargment"));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Staggered Vertical Fargment"));
 
         ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager(),fragments);
 

@@ -1,5 +1,6 @@
 package com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.adapter;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
