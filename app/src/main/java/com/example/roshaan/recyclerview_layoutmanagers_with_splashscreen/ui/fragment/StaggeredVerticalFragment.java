@@ -15,7 +15,8 @@ import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.R;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.adapter.GridHorizontalAdapter;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.adapter.StaggeredAdapter;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.databinding.FragmentStaggeredVerticalBinding;
-import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.ItemModel;
+import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.StaggeredItem;
+import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.StaggeredItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,15 +37,7 @@ public class StaggeredVerticalFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_staggered_vertical,container,false);
-        List<ItemModel> data=new ArrayList<>();
-        data.add(new ItemModel("null",R.drawable.st));
-        data.add(new ItemModel("null",R.drawable.s2));
-        data.add(new ItemModel("null",R.drawable.st3));
-        data.add(new ItemModel("null",R.drawable.st4));
-        data.add(new ItemModel("null",R.drawable.st5));
-        data.add(new ItemModel("null",R.drawable.st6));
-        data.add(new ItemModel("null",R.drawable.st7));
-        data.add(new ItemModel("null",R.drawable.st8));
+        List<StaggeredItem> data=DataRepository.getStaggeredData();
 
 
         StaggeredAdapter adapter=new StaggeredAdapter(data);

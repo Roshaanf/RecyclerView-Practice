@@ -1,6 +1,7 @@
 package com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen;
 
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.ItemModel;
+import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.StaggeredItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,21 @@ public class DataRepository {
         for(int i=0;i<names.length;i++){
             list.add(new ItemModel(names[i],images[i]));
         }
+        return list;
+    }
+
+    public static List<StaggeredItem> getStaggeredData(){
+
+        List<StaggeredItem> list=new ArrayList<>();
+        list.add(new StaggeredItem(R.drawable.st));
+        list.add(new StaggeredItem(R.drawable.s2));
+        list.add(new StaggeredItem(R.drawable.st3));
+        list.add(new StaggeredItem(R.drawable.st4));
+        list.add(new StaggeredItem(R.drawable.st5));
+        list.add(new StaggeredItem(R.drawable.st6));
+        list.add(new StaggeredItem(R.drawable.st7));
+        list.add(new StaggeredItem(R.drawable.st8));
+
         return list;
     }
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.R;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.databinding.StaggeredItemBinding;
 import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.ItemModel;
+import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.StaggeredItem;
 
 import java.util.List;
 
@@ -17,11 +18,11 @@ import java.util.List;
  * Created by Roshaan on 1/30/2018.
  */
 
-public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.StaggeredViewHolder>  {
+public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredViewHolder>  {
 
-    List<ItemModel> data;
+    List<StaggeredItem> data;
 
-    public StaggeredAdapter(List<ItemModel> data) {
+    public StaggeredAdapter(List<StaggeredItem> data) {
 
         this.data = data;
     }
@@ -44,20 +45,22 @@ public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.Stag
         return data.size();
     }
 
-    class StaggeredViewHolder extends RecyclerView.ViewHolder{
 
-        StaggeredItemBinding binding;
-        public StaggeredViewHolder(StaggeredItemBinding binding) {
-            super(binding.getRoot());
-            this.binding=binding;
-        }
+}
 
-        void setItem(final ItemModel data) {
 
-            binding.imageView.setImageResource(data.getImage());
-            binding.textView.setText(data.getName());
+class StaggeredViewHolder extends RecyclerView.ViewHolder{
 
-        }
+    StaggeredItemBinding binding;
+    public StaggeredViewHolder(StaggeredItemBinding binding) {
+        super(binding.getRoot());
+        this.binding=binding;
+    }
+
+    void setItem(final StaggeredItem data) {
+
+        binding.imageView.setImageResource(data.getImage());
 
     }
+
 }
