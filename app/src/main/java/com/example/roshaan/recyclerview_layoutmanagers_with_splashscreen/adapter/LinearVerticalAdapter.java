@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Roshaan on 1/25/2018.
  */
 
-public class LinearVerticalAdapter extends RecyclerView.Adapter<LinearVerticalViewHolder> {
+public class LinearVerticalAdapter extends RecyclerView.Adapter<LinearVerticalAdapter.LinearVerticalViewHolder> {
 
     List<ItemModel> data;
 
@@ -45,20 +45,22 @@ public class LinearVerticalAdapter extends RecyclerView.Adapter<LinearVerticalVi
     }
 
 
-}
+    static class LinearVerticalViewHolder extends RecyclerView.ViewHolder{
 
-class LinearVerticalViewHolder extends RecyclerView.ViewHolder{
+        LinearVerticalItemBinding binding;
 
-    LinearVerticalItemBinding binding;
+        public LinearVerticalViewHolder(LinearVerticalItemBinding binding) {
+            super(binding.getRoot());
+            this.binding=binding;
+        }
 
-    public LinearVerticalViewHolder(LinearVerticalItemBinding binding) {
-        super(binding.getRoot());
-        this.binding=binding;
+        void setItem(ItemModel data){
+
+            binding.imageView.setImageResource(data.getImage());
+            binding.textView.setText(data.getName());
+        }
     }
 
-    void setItem(ItemModel data){
-
-        binding.imageView.setImageResource(data.getImage());
-        binding.textView.setText(data.getName());
-    }
 }
+
+

@@ -13,6 +13,8 @@ import com.example.roshaan.recyclerview_layoutmanagers_with_splashscreen.models.
 
 import java.util.List;
 
+import javax.security.auth.callback.Callback;
+
 /**
  * Created by Roshaan on 1/30/2018.
  */
@@ -29,14 +31,16 @@ public class MultipleViewTypesAdapter extends RecyclerView.Adapter<RecyclerView.
         this.data = data;
     }
 
+    //this method will be called after getItemview type
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
+        Callback callback;
+        // views will be inflated according to the type of data
         switch (viewType) {
 
             case MultipleViewTypesAdapter.ITEM_MODEL:
                 LinearVerticalItemBinding linearVerticalBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.linear_vertical_item, parent, false);
-                return new LinearVerticalViewHolder(linearVerticalBinding);
+                return new LinearVerticalAdapter.LinearVerticalViewHolder(linearVerticalBinding);
 
             case MultipleViewTypesAdapter.STAGGERED_ITEM:
                 StaggeredItemBinding staggeredBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.staggered_item, parent, false);
@@ -47,19 +51,23 @@ public class MultipleViewTypesAdapter extends RecyclerView.Adapter<RecyclerView.
         }
     }
 
+    //this method will be called after creatView
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         switch (getItemViewType(position)){
             case MultipleViewTypesAdapter.ITEM_MODEL:
-                ((LinearVerticalViewHolder)holder).setItem((ItemModel)data.get(position));
+                //this method will be called in LinearVerticalViewHoldrer class to fill UI
+                ((LinearVerticalAdapter.LinearVerticalViewHolder)holder).setItem((ItemModel)data.get(position));
                 break;
             case MultipleViewTypesAdapter.STAGGERED_ITEM:
+                //this method will be called in StaggeredViewHoldrer class to fill UI
                 ((StaggeredViewHolder)holder).setItem((StaggeredItem)data.get(position));
                 break;
         }
     }
 
+    //first this method will be called
     @Override
     public int getItemViewType(int position) {
 
